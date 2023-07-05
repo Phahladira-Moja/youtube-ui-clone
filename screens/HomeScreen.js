@@ -66,6 +66,9 @@ export default function App() {
           </ScrollView>
         </View>
 
+        {/* suggested video */}
+        <VideoCard video={videos[4]} />
+
         {/* short video */}
         <View className="mt-2 py-5 space-y-3 border-t-zinc-700 border-b-zinc-700 border-4 border-l-0 border-r-0">
           <View className="mx-4 flex-row items-center space-x-2">
