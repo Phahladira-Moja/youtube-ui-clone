@@ -3,12 +3,21 @@ import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
 import { categories, shortVideos, videos } from "../constants";
 import { TouchableOpacity } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShortsVideoCard from "../components/ShortsVideoCard";
 import VideoCard from "../components/VideoCard";
+import { fetchTrendingVideos } from "../api/youtube.js";
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState("All");
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetchTrendingVideos();
+  };
 
   return (
     <View style={{ backgroundColor: themeColors.bg }} className="flex-1">
