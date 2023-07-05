@@ -1,7 +1,7 @@
 import { ScrollView, SafeAreaView, Text, View, Image } from "react-native";
 import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
-import { categories, shortVideos, videos } from "../constants";
+import { categories, shortVideos } from "../constants";
 import { TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 import ShortsVideoCard from "../components/ShortsVideoCard";
@@ -10,6 +10,7 @@ import { fetchTrendingVideos } from "../api/youtube.js";
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -17,6 +18,7 @@ export default function App() {
 
   const fetchData = async () => {
     const data = await fetchTrendingVideos();
+    setVideos(data);
   };
 
   return (
@@ -76,7 +78,7 @@ export default function App() {
         </View>
 
         {/* suggested video */}
-        <VideoCard video={videos[4]} />
+        {/* <VideoCard video={videos[4]} /> */}
 
         {/* short video */}
         <View className="mt-2 py-5 space-y-3 border-t-zinc-700 border-b-zinc-700 border-4 border-l-0 border-r-0">
