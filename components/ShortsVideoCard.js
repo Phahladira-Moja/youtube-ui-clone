@@ -1,6 +1,7 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 import * as Icon from "react-native-feather";
+import { TouchableOpacity } from "react-native";
 
 const ShortsVideoCard = ({ item }) => {
   return (
@@ -11,7 +12,9 @@ const ShortsVideoCard = ({ item }) => {
       />
 
       <View className="flex-row justify-end pt-3 pr-1">
-        <Icon.MoreVertical stroke="white" strokeWidth={1.4} height="20" />
+        <TouchableOpacity>
+          <Icon.MoreVertical stroke="white" strokeWidth={1.4} height="20" />
+        </TouchableOpacity>
       </View>
 
       <View className="p-2">

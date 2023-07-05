@@ -1,10 +1,11 @@
 import { ScrollView, SafeAreaView, Text, View, Image } from "react-native";
 import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
-import { categories, shortVideos } from "../constants";
+import { categories, shortVideos, videos } from "../constants";
 import { TouchableOpacity } from "react-native";
 import { useState } from "react";
 import ShortsVideoCard from "../components/ShortsVideoCard";
+import VideoCard from "../components/VideoCard";
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -88,6 +89,13 @@ export default function App() {
             ))}
           </ScrollView>
         </View>
+
+        {/* videos  */}
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {videos.map((video, index) => (
+            <VideoCard video={video} key={index} />
+          ))}
+        </ScrollView>
       </ScrollView>
     </View>
   );
