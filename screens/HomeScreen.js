@@ -1,9 +1,10 @@
 import { ScrollView, SafeAreaView, Text, View, Image } from "react-native";
 import { themeColors } from "../theme";
 import * as Icon from "react-native-feather";
-import { categories } from "../constants";
+import { categories, shortVideos } from "../constants";
 import { TouchableOpacity } from "react-native";
 import { useState } from "react";
+import ShortsVideoCard from "../components/ShortsVideoCard";
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -76,6 +77,16 @@ export default function App() {
               Shorts
             </Text>
           </View>
+
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            className="px-4"
+          >
+            {shortVideos.map((item, index) => (
+              <ShortsVideoCard item={item} key={index} />
+            ))}
+          </ScrollView>
         </View>
       </ScrollView>
     </View>
